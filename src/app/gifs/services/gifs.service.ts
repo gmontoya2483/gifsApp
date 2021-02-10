@@ -12,7 +12,6 @@ export class GifsService {
   private servicioUrl = 'https://api.giphy.com/v1/gifs';
   private _historial: string[] = [];
 
-  // TODO: Cambiar any por su tipado correcto
   public resultados: Gif[] = [];
 
   public get historial(): string [] {
@@ -42,7 +41,6 @@ export class GifsService {
       .set('limit', '10')
       .set('q', query);
 
-    console.log(params.toString());
 
     this.http.get<SearchGifsResponse>(`${ this.servicioUrl }/search`, {params})
       .subscribe(
